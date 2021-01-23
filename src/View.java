@@ -17,6 +17,7 @@ public class View extends VBox {
     Label timeLeftLabel;
     int width = 640;
     int height = 480;
+    private Controller controller;
 
     public View() {
 
@@ -31,12 +32,23 @@ public class View extends VBox {
         gc.fillRect(0,0,canvas.getWidth(), canvas.getHeight());
 
 
-
-        this.getChildren().addAll(button, textField,figuresLabel, missedLabel, timeLeftLabel, canvas);
+        this.getChildren().addAll(button, textField, figuresLabel, missedLabel, timeLeftLabel, canvas);
 
     }
 
     public void addHandler() {
+        canvas.setOnMouseClicked((event) -> {
+            // Is executed on mouse clicked inside the canvas
+//           var x =  event.getScreenX(); event.getX(); event.getSceneX();
+            //           var y =  event.getScreenY(); event.getY(); event.getSceneY();
 
+//         to get the button value use this, i think  0 is for left 1 for right or otherwise.. u can test with System.out.println() here  event.getButton().ordinal()
+            this.controller.drawShape( event.getButton().ordinal(),x,y);
+        });
+
+    }
+
+    public void link(Controller controller) {
+        this.controller = controller;
     }
 }

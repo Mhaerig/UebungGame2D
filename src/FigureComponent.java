@@ -22,6 +22,4 @@ public interface FigureComponent {
     void clear();
 
     Collection<FigureComponent> getChildren();
-
-
 }

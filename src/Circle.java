@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.Collection;
 
 
-public class Circle implements FigureLeaf{
+public class Circle implements FigureComponent{
 
     private Point2D root;
     private double radius;
